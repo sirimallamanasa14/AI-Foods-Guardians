@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Food Guardian</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<header>
+    <h1>🛡️ AI FOOD GUARDIAN</h1>
+    <p>Smart Restaurant → Smart Delivery → Smart Customer</p>
+</header>
+
+<nav>
+    <button onclick="showPage('dashboard')">📊 Dashboard</button>
+    <button onclick="showPage('restaurant')">🏪 Restaurant</button>
+    <button onclick="showPage('smartbox')">📦 Smart Box</button>
+    <button onclick="showPage('delivery')">🚚 Delivery</button>
+    <button onclick="showPage('passport')">📱 Food Passport</button>
+</nav>
+
+<main>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page">
+
+    <h2>📊 Real-Time Dashboard</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📦 Total Orders</h3>
+            <h1>150</h1>
+        </div>
+
+        <div class="card">
+            <h3>🟢 Low Risk</h3>
+            <h1>132</h1>
+        </div>
+
+        <div class="card">
+            <h3>🟡 Attention</h3>
+            <h1>14</h1>
+        </div>
+
+        <div class="card">
+            <h3>🔴 High Risk</h3>
+            <h1>4</h1>
+        </div>
+
+    </div>
+
+    <div class="panel">
+        <h2>🤖 AI Quality Risk</h2>
+
+        <h1 id="risk">LOW RISK</h1>
+
+        <p>Current Order: <b>#1025</b></p>
+
+        <h3 id="riskStatus">🟢 FOOD CONDITION GOOD</h3>
+    </div>
+
+</section>
+
+
+<!-- RESTAURANT -->
+<section id="restaurant" class="page">
+
+    <h2>🏪 Smart Restaurant</h2>
+
+    <div class="panel">
+
+        <h3>📈 AI Demand Prediction</h3>
+
+        <p>🍕 Pizza → HIGH</p>
+        <p>🍔 Burger → MEDIUM</p>
+        <p>🍚 Rice → LOW</p>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>📦 AI Packaging Selector</h3>
+
+        <select onchange="packaging(this.value)">
+
+            <option value="pizza">Pizza</option>
+            <option value="soup">Curry / Soup</option>
+            <option value="dessert">Dessert</option>
+            <option value="burger">Burger</option>
+
+        </select>
+
+        <p id="packageResult">
+            Recommended: Ventilated food box
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SMART BOX -->
+<section id="smartbox" class="page">
+
+    <h2>📦 Smart Food Delivery Box</h2>
+
+    <div class="box-layout">
+
+        <div class="zone hot">
+            <h2>🔥 HOT</h2>
+            <p>Biryani / Meals</p>
+            <p>Recommended: Hot zone</p>
+        </div>
+
+        <div class="zone cold">
+            <h2>❄️ COLD</h2>
+            <p>Ice Cream / Cold Items</p>
+            <p>Recommended: Cold zone</p>
+        </div>
+
+        <div class="zone moderate">
+            <h2>🌡️ MODERATE</h2>
+            <p>Fruits / Snacks</p>
+            <p>Recommended: Moderate zone</p>
+        </div>
+
+    </div>
+
+    <h3>📡 Actual Sensor Reading</h3>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌡 Temperature</h3>
+            <h1 id="temperature">-- °C</h1>
+        </div>
+
+        <div class="card">
+            <h3>💧 Humidity</h3>
+            <h1 id="humidity">-- %</h1>
+        </div>
+
+        <div class="card">
+            <h3>🔐 Tamper</h3>
+            <h1 id="tamper">SAFE</h1>
+        </div>
+
+        <div class="card">
+            <h3>📳 Shock</h3>
+            <h1 id="motion">NORMAL</h1>
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>🤖 Food Quality Analysis</h2>
+
+        <h1 id="quality">WAITING...</h1>
+
+        <p id="qualityMessage">
+            Waiting for temperature and humidity...
+        </p>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>🎤 Live Demo</h2>
+
+        <button onclick="tamperAlert()">
+            📦 Simulate Tamper
+        </button>
+
+        <button onclick="shockAlert()">
+            📳 Simulate Shock
+        </button>
+
+        <button onclick="resetSystem()">
+            🟢 Reset
+        </button>
+
+        <h3 id="alert">System Normal 🟢</h3>
+
+    </div>
+
+</section>
+
+
+<!-- DELIVERY -->
+<section id="delivery" class="page">
+
+    <h2>🚚 AI Delivery Optimization</h2>
+
+    <div class="panel">
+
+        <h3>🗺 Route Comparison</h3>
+
+        <p>Route A → 5 km → 35 min</p>
+
+        <p>Route B → 6 km → 24 min ⭐</p>
+
+        <h3>🤖 AI Recommendation: Route B</h3>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>⏰ Delay Prediction</h3>
+
+        <h1>23%</h1>
+
+        <p>🟢 On-time delivery likely</p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOD PASSPORT -->
+<section id="passport" class="page">
+
+    <h2>📱 Digital Food Passport</h2>
+
+    <div class="panel passport">
+
+        <h2>🍕 Order #1025</h2>
+
+        <p>👨‍🍳 Prepared → 7:10 PM ✅</p>
+
+        <p>📦 Packed → 7:18 PM ✅</p>
+
+        <p>🚚 Dispatched → 7:22 PM ✅</p>
+
+        <p>🌡 Temperature → <span id="passportTemp">Monitoring...</span></p>
+
+        <p>💧 Humidity → <span id="passportHumidity">Monitoring...</span></p>
+
+        <p>🔐 Tamper Events → <span id="passportTamper">0</span></p>
+
+        <p>📳 Abnormal Shocks → <span id="passportShock">0</span></p>
+
+        <h3>🤖 AI Risk → <span id="passportRisk">🟢 LOW</span></h3>
+
+        <hr>
+
+        <h3>📦 Delivery Box</h3>
+
+        <p>🔥 Hot Zone → Available</p>
+        <p>❄️ Cold Zone → Available</p>
+        <p>🌡️ Moderate Zone → Available</p>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    🛡️ AI Food Guardian | IoT + AI/ML Hackathon Project
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
